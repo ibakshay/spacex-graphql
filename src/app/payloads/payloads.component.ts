@@ -10,7 +10,6 @@ import { PastLaunchesListGQL, PayloadsGQL } from '../services/spacexGraphql.serv
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PayloadsComponent implements OnInit {
-  pastLaunches$
   payloads$
 
   constructor(private payloadsService: PayloadsGQL) {
