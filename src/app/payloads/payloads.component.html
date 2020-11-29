@@ -1,0 +1,15 @@
+<ng-container *ngIf="payloads$ | async as payloads">
+    <main>
+        <section class="container">
+            <mat-card *ngFor="let payload of payloads">
+                <mat-card-title> {{payload.id}}</mat-card-title>
+                <mat-card-subtitle>{{payload.orbit}}</mat-card-subtitle>
+                <mat-card-subtitle>{{payload.payload_type}}</mat-card-subtitle>
+                <mat-card-subtitle>{{payload.nationality}}</mat-card-subtitle>
+                <mat-card-subtitle>{{payload.manufacturer}}</mat-card-subtitle>
+                <mat-card-subtitle>{{payload.reused}}</mat-card-subtitle>
+
+            </mat-card>
+        </section>
+    </main>
+</ng-container>

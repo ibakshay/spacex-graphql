@@ -1,0 +1,10 @@
+query payloads($limit: Int!) {
+  payloads(limit: $limit) {
+    id
+    orbit
+    payload_type
+    nationality
+    manufacturer
+    reused
+  }
+}

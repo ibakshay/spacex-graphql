@@ -9,12 +9,14 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { PayloadsComponent } from './payloads/payloads.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LaunchListComponent,
-    LaunchDetailsComponent
+    LaunchDetailsComponent,
+    PayloadsComponent
   ],
   imports: [
     BrowserModule,

@@ -1360,6 +1360,19 @@ export type PastLaunchesListQuery = (
   )>>> }
 );
 
+export type PayloadsQueryVariables = Exact<{
+  limit: Scalars['Int'];
+}>;
+
+
+export type PayloadsQuery = (
+  { __typename?: 'Query' }
+  & { payloads?: Maybe<Array<Maybe<(
+    { __typename?: 'Payload' }
+    & Pick<Payload, 'id' | 'orbit' | 'payload_type' | 'nationality' | 'manufacturer' | 'reused'>
+  )>>> }
+);
+
 export const LaunchDetailsDocument = gql`
     query launchDetails($id: ID!) {
   launch(id: $id) {
@@ -1406,6 +1419,29 @@ export const PastLaunchesListDocument = gql`
   })
   export class PastLaunchesListGQL extends Apollo.Query<PastLaunchesListQuery, PastLaunchesListQueryVariables> {
     document = PastLaunchesListDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const PayloadsDocument = gql`
+    query payloads($limit: Int!) {
+  payloads(limit: $limit) {
+    id
+    orbit
+    payload_type
+    nationality
+    manufacturer
+    reused
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class PayloadsGQL extends Apollo.Query<PayloadsQuery, PayloadsQueryVariables> {
+    document = PayloadsDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);
